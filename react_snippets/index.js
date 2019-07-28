@@ -1,6 +1,28 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+// const TestJSX = (props) => {
+//     return (
+//         <div className="test"> {props.children}
+//             <div>Own Thing</div>
+//         </div>
+//     )
+// }
+
+const Test = (props) => {
+    return (
+        React.createElement(
+            "div",
+            {
+                className: "test"
+            },
+            [
+                ...props.children,
+                React.createElement("div", {}, "Own Thing")
+            ]
+        )
+    )
+}
 const Pet = (props) => {
 
   console.log('pet created')
@@ -16,7 +38,9 @@ const Child = (props) => {
 }
 
 const App = () => {
-  return React.createElement('h1', {}, [
+  return React.createElement(Test, {
+      className: 'AppHead'
+  }, [
     React.createElement(Pet, {
       className: 1,
       Props: {
@@ -42,6 +66,12 @@ const App = () => {
     )
   ])
 }
+
+// const AppJSX = () => {
+//     return (
+//         <Test>App Header</Test>
+//     )
+// }
 
 ReactDOM.render(
   React.createElement(App),

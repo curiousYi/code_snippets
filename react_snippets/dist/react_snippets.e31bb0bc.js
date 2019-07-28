@@ -25757,6 +25757,27 @@ var _reactDom = _interopRequireDefault(require("react-dom"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
+
+function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
+
+// const TestJSX = (props) => {
+//     return (
+//         <div className="test"> {props.children}
+//             <div>Own Thing</div>
+//         </div>
+//     )
+// }
+var Test = function Test(props) {
+  return _react.default.createElement("div", {
+    className: "test"
+  }, [].concat(_toConsumableArray(props.children), [_react.default.createElement("div", {}, "Own Thing")]));
+};
+
 var Pet = function Pet(props) {
   console.log('pet created');
   console.log(props);
@@ -25770,7 +25791,9 @@ var Child = function Child(props) {
 };
 
 var App = function App() {
-  return _react.default.createElement('h1', {}, [_react.default.createElement(Pet, {
+  return _react.default.createElement(Test, {
+    className: 'AppHead'
+  }, [_react.default.createElement(Pet, {
     className: 1,
     Props: {
       foo: 'bar'
@@ -25783,7 +25806,12 @@ var App = function App() {
     },
     Baz: 'woot'
   }, [_react.default.createElement(Child, {}, []), _react.default.createElement(Child, {}, [])])]);
-};
+}; // const AppJSX = () => {
+//     return (
+//         <Test>App Header</Test>
+//     )
+// }
+
 
 _reactDom.default.render(_react.default.createElement(App), document.getElementById("container"));
 },{"react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js"}],"../../../.nvm/versions/node/v11.9.0/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
